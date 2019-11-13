@@ -27,7 +27,7 @@ namespace CustomerApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Customer>>> GetCustomers()
+        public async Task<ActionResult> GetCustomers()
         {
             IEnumerable<Customer> customers = await _customerService.GetAllCustomers();
             return Ok(customers.ToList());
@@ -35,14 +35,14 @@ namespace CustomerApi.Controllers
 
 
         [HttpPost]
-        public async Task<ActionResult<Customer>> CreateCustomer([FromBody] CustomerCreateRequest customerCreateRequest)
+        public async Task<ActionResult> CreateCustomer([FromBody] CustomerCreateRequest customerCreateRequest)
         {
             Customer newCustomer = await _customerService.CreateCustomer(customerCreateRequest);
-            return newCustomer;
+            return Created("", newCustomer);
         }
         
         [HttpGet("{id}")]
-        public async Task<ActionResult<Customer>> GetCustomerById(long id)
+        public async Task<ActionResult> GetCustomerById(long id)
         {
             Customer customer = await _customerService.GetCustomerById(id);
 
@@ -56,7 +56,7 @@ namespace CustomerApi.Controllers
 
     
         [HttpPatch("{id}")]
-        public async Task<ActionResult<Customer>> UpdateCustomerbyId(long id, [FromBody] JsonPatchDocument<Customer> customerUpdateRequest)
+        public async Task<ActionResult> UpdateCustomerbyId(long id, [FromBody] JsonPatchDocument<Customer> customerUpdateRequest)
         {
             try {
                 Customer newCustomer = await _customerService.UpdateCustomerbyId(id, customerUpdateRequest);
