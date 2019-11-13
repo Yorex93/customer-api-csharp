@@ -54,6 +54,11 @@ namespace CustomerApi.Services
 
         public async Task<Customer> UpdateCustomerbyId(long customerId, JsonPatchDocument<Customer> customerUpdateRequest)
         {
+
+            // TODO
+            // Typically one should use a DTO to avoid updating fields like Timestamps
+            // Typical example would be to Map to DTO then merge and Map back to entity
+
             Customer customerToUpdate = await _customerRepository.FindByIdAsync(customerId);
             if(customerToUpdate == null) {
                 throw new NotFoundException("Customer not found");
