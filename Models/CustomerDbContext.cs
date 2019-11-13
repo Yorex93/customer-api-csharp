@@ -37,9 +37,9 @@ namespace CustomerApi.Models
 
                 if (entity.State == EntityState.Added)
                 {
-                    ((BaseEntity)entity.Entity).createdAt = now;
+                    ((BaseEntity)entity.Entity).CreatedAt = now;
                 }
-                ((BaseEntity)entity.Entity).updatedAt = now;
+                ((BaseEntity)entity.Entity).UpdatedAt = now;
             }
         }
     }

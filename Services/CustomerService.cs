@@ -22,11 +22,11 @@ namespace CustomerApi.Services
             // TODO Possibly check for existing emails
             var customer = new Customer
             {
-                firstName = customerCreateRequest.firstName,
-                lastName = customerCreateRequest.lastName,
-                email = customerCreateRequest.email,
-                otherNames = customerCreateRequest.otherNames,
-                phone = customerCreateRequest.phone,
+                FirstName = customerCreateRequest.firstName,
+                LastName = customerCreateRequest.lastName,
+                Email = customerCreateRequest.email,
+                OtherNames = customerCreateRequest.otherNames,
+                Phone = customerCreateRequest.phone,
             };
             return await _customerRepository.SaveAsync(customer);
         }

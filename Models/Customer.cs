@@ -4,12 +4,12 @@ namespace CustomerApi.Models
 {
     public class Customer : BaseEntity
     {
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public string otherNames { get; set; }
-        public string phone { get; set; }
-        public string email { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string OtherNames { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
 
-        public bool isActive { get; set; }
+        public bool IsActive { get; set; }
     }
 }

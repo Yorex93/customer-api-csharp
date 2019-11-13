@@ -30,7 +30,8 @@ namespace CustomerApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc(options => options.Filters.Add(new CustomExceptonFilter()));
-            services.AddDbContext<CustomerDbContext>(options => options.UseInMemoryDatabase("Customers"));
+            services.AddDbContext<CustomerDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CustomersDb")));
+            // services.AddDbContext<CustomerDbContext>(options => options.UseInMemoryDatabase("Customers"));
             services.AddControllers();
             services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
             services.AddScoped<ICustomerService, CustomerService>();

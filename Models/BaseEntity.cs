@@ -4,8 +4,8 @@ namespace CustomerApi.Models
 {
     public abstract class BaseEntity
     {
-        public long id { get; set; }  
-        public DateTime createdAt { get; set; }  
-        public DateTime updatedAt { get; set; }  
+        public long Id { get; set; }  
+        public DateTime CreatedAt { get; set; }  
+        public DateTime UpdatedAt { get; set; }  
     }
 }
